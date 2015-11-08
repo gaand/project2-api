@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :phone_number
       t.string :city
       t.string :state
+      t.date :event_date
 
       t.timestamps null: false
     end
