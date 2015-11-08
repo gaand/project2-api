@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.date :event_date
+      t.integer :group_size
 
       t.timestamps null: false
     end
