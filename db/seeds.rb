@@ -7,22 +7,23 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
+Location.delete_all
 
 %w(and dna dan nda).each do |name|
-  email = "#{name}@#{name}.com"
+  email = '#{name}@#{name}.com'
   next if User.exists? email: email
   User.create!(email: email, password: 'abc123',
                password_confirmation: 'abc123')
 end
 
-User.create!([{email: "elinore_whitla@email.com", password: 'pw', password_confirmation: 'pw'}])
-    # {email: "brunhilda_fernandez@email.com", token: , password_digest: },
-    # {email: "cari_mcnamara@email.com", token: , password_digest: },
-    # {email: "carmen_delossa@email.com", token: , password_digest: },
-    # {email: "kissiah_sullivan@email.com", token: , password_digest: },
-    # {email: "noelyn_eisenberg@email.com", token: , password_digest: },
-    # {email: "martina_familiari@email.com", token: , password_digest: },
-    # {email: "cathleen_odle@email.com", token: , password_digest: },
-    # {email: "fanchette_glegg@email.com", token: , password_digest: },
-    # {email: "sandy_abbratozzato@email.com", token: , password_digest: }
-#  ])
+User.create!([
+  { email: 'elinore_whitla@email.com', password: 'pw1', password_confirmation: 'pw1' },
+  { email: 'brunhilda_fernandez@email.com', password: 'pw2', password_confirmation: 'pw2' },
+  { email: 'cari_mcnamara@email.com', password: 'pw3', password_confirmation: 'pw3' },
+  { email: 'carmen_delossa@email.com', password: 'pw4', password_confirmation: 'pw4' },
+  { email: 'kissiah_sullivan@email.com', password: 'pw5', password_confirmation: 'pw5' }
+])
+
+Location.create! ([
+  { city: 'Birmingham', state: 'AL', region: 'South' }
+])
