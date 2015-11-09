@@ -14,7 +14,7 @@ class CreateSites < ActiveRecord::Migration
 
       t.references :user
       t.references :neighborhood
-      t.references :votes
+      t.references :vote
 
       t.timestamps null: false
     end
