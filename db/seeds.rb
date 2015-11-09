@@ -8,6 +8,7 @@
 
 User.delete_all
 Location.delete_all
+Event.delete_all
 
 %w(and dna dan nda).each do |name|
   email = '#{name}@#{name}.com'
@@ -25,5 +26,14 @@ User.create!([
 ])
 
 Location.create! ([
-  { city: 'Birmingham', state: 'AL', region: 'South' }
+  { city: 'Birmingham', state: 'AL', region: 'South' },
+  { city: 'Mobile', state: 'AL', region: 'South' },
+  { city: 'Montgomery', state: 'AL', region: 'South' },
+  { city: 'Little Rock', state: 'AR', region: 'South' },
+  { city: 'Fort Smith', state: 'AR', region: 'South' }
+])
+
+Event.create! ([
+  { business_kind: 'Bar', name: 'Park', website: 'www.park.com', phone_number: '203-442-4268', event_date: '2015-03-01', group_size: 4},
+  { business_kind: 'Vinyard', name: 'Graps Oh Yeah', website: 'www.grapesforyou.com', phone_number: '202-552-4768', event_date: '2013-12-24', group_size: 4}
 ])
