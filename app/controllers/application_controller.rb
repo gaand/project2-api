@@ -33,6 +33,7 @@ class ApplicationController < ActionController::API
   end
 
   # Restrict visibility of these methods
+  # They can only be called from the inherentence chain of the object in question
   private :authenticate, :current_user, :record_not_found
   private :ssl_configured?, :api_request_settings
 end
