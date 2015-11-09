@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     render json: @users
   end
 
-  # GET /users/1
+  # GET /users/1 if the current user is the user you want to update, then i'll update
   def show
     if current_user == @user
       render json: @user, serializer: CurrentUserSerializer, root: 'user'
