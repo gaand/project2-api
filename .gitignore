@@ -12,4 +12,5 @@
 !/log/.keep
 /tmp
 
-.env # noted from repo https://github.com/LaurenGrant/heroku-deployment-walkthrough
+# noted from repo https://github.com/LaurenGrant/heroku-deployment-walkthrough
+.env
