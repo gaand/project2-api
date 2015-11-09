@@ -7,6 +7,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :given_name
 
+      t.references :neighborhood
+      t.references :votes
+      
       t.timestamps null: false
     end
   end

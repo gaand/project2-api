@@ -13,6 +13,8 @@ class CreateSites < ActiveRecord::Migration
       t.string :category
 
       t.references :user
+      t.references :neighborhood
+      t.references :votes
 
       t.timestamps null: false
     end
