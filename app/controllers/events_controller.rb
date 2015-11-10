@@ -31,5 +31,21 @@ class EventsController < ApplicationController
       render json: @event.errors, status: :unprocessable_entity
     end
   end
+  # DELETE /events/1
+  def destroy
+    @event.destroy
 
+    head :no_content
   end
+
+  def set_event
+    @event = current_user.events.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(:title, :isbn)
+  end
+
+  private :set_event, :event_params
+
+end
