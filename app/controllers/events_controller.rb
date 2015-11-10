@@ -23,5 +23,13 @@ class EventsController < ApplicationController
       render json: @event.errors, status: :unprocessable_entity
     end
   end
+ # PATCH /events/1
+  def update
+    if @event.update(event_params)
+      head :no_content
+    else
+      render json: @event.errors, status: :unprocessable_entity
+    end
+  end
 
   end
