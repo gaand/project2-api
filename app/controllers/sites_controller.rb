@@ -1,50 +1,64 @@
 #
-class SitesController < OpenReadController
+class SitesController < ApplicationController
   before_action :set_site, only: [:update, :destroy]
 
   # GET /sites
+#  def index
+#    @sites = Site.all
+
+#    render json: @sites
+#  end
+
+  # GET / 
   def index
-    @books = Site.all
+   if params[:neighborhood] then
+     @sites = Site.find_by_neighborhood(params[:neighborhood])
+     else if params[:acivity] then
+       @sites = Site.find_by_activity(params[:activity])
+     else
+       @sites = Site.all
+     end
+   end
 
-    render json: sites
-  end
+   render json: @sites
+ end
 
-  # GET /sites/1
+  # DO I WANT THIS???
   def show
-    book = Site.find(params[:id])
+    @site = Site.find(params[:id])
 
-    render json: site
+    render json: @site
   end
 
   # POST /sites
   def create
-    site = current_user.books.new(book_params)
+    @site = current_user.my_sites.new(site_params)
 
-    if site.save
-      render json: site, status: :created, location: @site
+    if @site.save
+      render json: @site, status: :created, location: @site
     else
-      render json: site.errors, status: :unprocessable_entity
+      render json: @site.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH /sites/1
   def update
-    if site.update(site_params)
+    if @site.update(site_params)
       head :no_content
     else
-      render json: site.errors, status: :unprocessable_entity
+      render json: @site.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /sites/1
   def destroy
-    site.destroy
+    @site.destroy
 
     head :no_content
   end
 
   def set_site
-    site = current_user.sites.find(params[:id])
+    @site = current_user.my_sites.find(params[:id])
   end
 
   def site_params
