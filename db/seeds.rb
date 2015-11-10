@@ -34,6 +34,6 @@ Location.create! ([
 ])
 
 Event.create! ([
-  { business_kind: 'Bar', name: 'Park', website: 'www.park.com', phone_number: '203-442-4268', event_date: '2015-03-01', group_size: 4},
-  { business_kind: 'Vinyard', name: 'Graps Oh Yeah', website: 'www.grapesforyou.com', phone_number: '202-552-4768', event_date: '2013-12-24', group_size: 4}
+  { business_kind: 'Bar', name: 'Park', website: 'www.park.com', phone_number: '203-442-4268', event_date: '2015-03-01', group_size: 4, location_id: 28, user_id: 58},
+  { business_kind: 'Vinyard', name: 'Graps Oh Yeah', website: 'www.grapesforyou.com', phone_number: '202-552-4768', event_date: '2013-12-24', group_size: 4, location_id: 29, user_id: 57}
 ])
