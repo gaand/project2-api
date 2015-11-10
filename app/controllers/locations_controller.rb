@@ -1,5 +1,5 @@
 #
-class LocationsController < OpenReadController
+class LocationsController < ApplicationController
   before_action :set_location, only: [:update, :destroy]
 
   # GET /locations
