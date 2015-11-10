@@ -8,8 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       
       t.string :given_name
 
-      t.references :votes
-      t.references :sites
+      t.references :activities
       
       t.timestamps null: false
     end
