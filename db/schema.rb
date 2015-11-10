@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20151109214724) do
   create_table "activities", force: :cascade do |t|
     t.string  "name"
     t.integer "sites_id"
+    t.integer "users_id"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -26,14 +27,13 @@ ActiveRecord::Schema.define(version: 20151109214724) do
     t.string   "description"
     t.string   "category"
     t.string   "address"
+    t.string   "neighborhood"
     t.string   "scale"
     t.string   "coverage"
     t.string   "busy"
     t.integer  "users_id"
-    t.integer  "activities_id"
-    t.integer  "votes_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -11,8 +11,6 @@ class CreateSites < ActiveRecord::Migration
       t.string :busy
       
       t.references :users
-      t.references :activities
-      t.references :votes
 
       t.timestamps null: false
     end
