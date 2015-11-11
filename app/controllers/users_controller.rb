@@ -1,5 +1,5 @@
 #
-class UsersController < ApplicationController
+class UsersController < OpenReadController
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
