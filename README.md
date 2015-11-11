@@ -63,9 +63,11 @@ curl --request POST --header "Authorization: Token token=e44eb9c532e4c086778578d
 }'  http://localhost:3000/events
 ```
 
-## List
+## List all events from current user
 
 ```
 curl --header "Authorization: Token token=e44eb9c532e4c086778578d93d77ae43" http://localhost:3000/events
 ```
+## Deletes 1 event from current user
 
+curl --request DELETE --header "Authorization: Token token=e44eb9c532e4c086778578d93d77ae43" http://localhost:3000/events/12
