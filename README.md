@@ -6,9 +6,9 @@
 ```
 curl --include --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "an@example.email",
-    "password": "an example password",
-    "password_confirmation": "an example password"
+    "email": "test@test.com",
+    "password": "test",
+    "password_confirmation": "test"
   }
 }' http://localhost:3000/register
 ```
@@ -18,8 +18,8 @@ curl --include --request POST --header "Content-Type: application/json" -d '{
 ```
 curl --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "an@example.email",
-    "password": "an example password"
+    "email": "test@test.com",
+    "password": "test"
   }
 }' http://localhost:3000/login
 ```
@@ -35,15 +35,15 @@ curl --request DELETE --header "Authorization: Token token=c017d611187e3350baffc
 ## List
 
 ```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/events
 ```
 
-# Books
+# events
 
 ## List
 
 ```
-curl --header "Authorization: Token token=c017d611187e3350baffc52d35a4df69" http://localhost:3000/users
+curl --header "Authorization: Token token=830fe72293758fc09c75bcb05a27a57d" http://localhost:3000/users
 ```
 
 **OR**
@@ -55,10 +55,16 @@ curl http://localhost:3000/users
 ## Create
 
 ```
-curl --request POST --header "Authorization: Token token=be249dc0231396806f24c953cafae03a" --header "Content-Type: application/json" -d '{
-  "book": {
-    "title":"The Hold",
-    "isbn":"abc123def456"
+curl --request POST --header "Authorization: Token token=0b28e4e26a487ff7100dd98101f9b13e" --header "Content-Type: application/json" -d '{
+  "event": {
+  "business_kind":"bar",
+  "name":"bar1",
+  "website":"www.bar1.com",
+  "phone_number":"555-555-5551",
+  "event_date":"2015-11-11",
+  "group_size":"3",
+  "location_id":"29",
+  "user_id":"70"
   }
-}'  http://localhost:3000/books
+}'  http://localhost:3000/events
 ```
