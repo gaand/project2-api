@@ -68,6 +68,23 @@ curl --request POST --header "Authorization: Token token=e44eb9c532e4c086778578d
 ```
 curl --header "Authorization: Token token=e44eb9c532e4c086778578d93d77ae43" http://localhost:3000/events
 ```
+## Update
+
+```
+curl --request PATCH --header "Authorization: Token token=edf32577e0f98884d8a900b59a26423c" --header "Content-Type: application/json" -d '{
+  "event": {
+  "business_kind":"spa",
+  "name":"you relax",
+  "website":"www.you-relax.com",
+  "phone_number":"207-555-5551",
+  "event_date":"2015-10-11",
+  "group_size":"9",
+  "location_id":"29",
+  "user_id":"70"
+  }
+}'  http://localhost:3000/events/16
+```
+
 ## Deletes 1 event from current user
 
 curl --request DELETE --header "Authorization: Token token=e44eb9c532e4c086778578d93d77ae43" http://localhost:3000/events/12
