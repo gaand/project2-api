@@ -37,6 +37,12 @@ class ProfilesController < OpenReadController
 
   # DELETE /profiles/1
   def destroy
+    @profile = current_user.profile
+    @weather_pairs = current_user.profile.weather_pairs
+
+  if @weather_pairs
+    @weather_pairs.destroy
+  end
     @profile.destroy
 
     head :no_content
