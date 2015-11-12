@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   post '/register' => 'auth#register'
-  # patch '/confirm' => 'auth#confirm'
   post '/login' => 'auth#login'
   delete '/logout/:id' => 'auth#logout'
 
-  resources :users, except: [:new, :edit]
+  resources :users, except: [:new, :edit] do
+    resource :profile, shallow: true
+  end
 
-  resources :books, except: [:new, :edit]
+  resource :profile, except: [:new, :edit, :index, :create] do
+    resources :weather_pairs, shallow: true
+  end
 end
