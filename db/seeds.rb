@@ -17,7 +17,7 @@ Event.delete_all
                password_confirmation: 'abc123')
 end
 
-User.create!([
+User.create! ([
   { email: 'elinore_whitla@email.com', password: 'pw1', password_confirmation: 'pw1' },
   { email: 'brunhilda_fernandez@email.com', password: 'pw2', password_confirmation: 'pw2' },
   { email: 'cari_mcnamara@email.com', password: 'pw3', password_confirmation: 'pw3' },
