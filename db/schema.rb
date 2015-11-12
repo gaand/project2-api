@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20151109214724) do
 
   create_table "activities", force: :cascade do |t|
     t.string  "name"
-    t.integer "sites_id"
-    t.integer "users_id"
+    t.integer "site_id"
+    t.integer "user_id"
   end
 
   create_table "sites", force: :cascade do |t|
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151109214724) do
     t.string   "scale"
     t.string   "coverage"
     t.string   "busy"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -41,9 +41,7 @@ ActiveRecord::Schema.define(version: 20151109214724) do
     t.string   "token",           null: false
     t.string   "password_digest", null: false
     t.string   "given_name"
-    t.integer  "activities_id"
-    t.integer  "sites_id"
-    t.integer  "votes_id"
+    t.integer  "activity_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -53,8 +51,8 @@ ActiveRecord::Schema.define(version: 20151109214724) do
 
   create_table "votes", force: :cascade do |t|
     t.string   "opinion"
-    t.integer  "users_id"
-    t.integer  "sites_id"
+    t.integer  "user_id"
+    t.integer  "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -10,7 +10,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :coverage
       t.string :busy
       
-      t.references :users
+      t.references :user
 
       t.timestamps null: false
     end

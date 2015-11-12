@@ -3,8 +3,8 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
     	t.string :opinion
 
-    	t.references :users
-    	t.references :sites
+    	t.references :user
+    	t.references :site
 
     	t.timestamps null: false
     end
