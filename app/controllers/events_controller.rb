@@ -9,7 +9,9 @@ class EventsController < ApplicationController
   end
   # GET /events/1
   def show
-     render json: @event
+    @event = current_user.events.find(params[:id])
+
+    render json: @events
   end
   # POST /events
   def create
@@ -23,6 +25,7 @@ class EventsController < ApplicationController
   end
  # PATCH /events/1
   def update
+    @event = current_user.events.find(params[:id])
     if @event.update(event_params)
       head :no_content
     else
@@ -41,7 +44,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:business_kind, :name, :website, :phone_number, :event_date, :group_size, :location_id, :user_id)
+    params.require(:event).permit(:business_kind, :name, :website, :phone_number, :event_date, :group_size, :location_id, :user_id, :id)
   end
 
   private :set_event, :event_params
