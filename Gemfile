@@ -12,7 +12,6 @@ gem 'rails-api'
 # Cross-Origin Resource Sharing
 gem 'rack-cors', require: 'rack/cors'
 
-gem 'httparty'
 # Use PostgreSQL database
 gem 'pg'
 
