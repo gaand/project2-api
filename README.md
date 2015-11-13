@@ -1,3 +1,6 @@
+# Project-2---Back-End
+Back-end content for project 2
+
 
 ----- # User authentication -----
 
@@ -88,3 +91,9 @@ curl --request PATCH --header "Authorization: Token token=edf32577e0f98884d8a900
 ## Deletes 1 event from current user
 
 curl --request DELETE --header "Authorization: Token token=e44eb9c532e4c086778578d93d77ae43" http://localhost:3000/events/12
+
+
+Front-End Repo 'project2-api' link
+https://github.com/LaurenGrant/project2-api
+
+Contact: Lauren Grant https://github.com/LaurenGrant
