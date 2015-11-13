@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
 
   # POST /locations
   def create
-    @location = current_user.locations.new(location_params)
+    @location = current_event.locations.new(location_params)
 
     if @location.save
       render json: @location, status: :created, location: @location
@@ -44,7 +44,7 @@ class LocationsController < ApplicationController
   end
 
   def set_location
-    @location = current_user.locations.find(params[:id])
+    @location = current_event.locations.find(params[:id])
   end
 
   def location_params
