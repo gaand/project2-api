@@ -94,6 +94,6 @@ curl --request DELETE --header "Authorization: Token token=e44eb9c532e4c08677857
 
 
 Front-End Repo 'project2-api' link
-https://github.com/LaurenGrant/project2-api
+https://github.com/LaurenGrant/Project-2---Front-End
 
 Contact: Lauren Grant https://github.com/LaurenGrant
