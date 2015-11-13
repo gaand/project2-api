@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
 
     if @event.save
-      render json: @event, status: :created, event: @event
+      render json: @event, status: :created
     else
       render json: @event.errors, status: :unprocessable_entity
     end
@@ -44,7 +44,9 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:business_kind, :name, :website, :phone_number, :event_date, :group_size, :location_id, :user_id, :id)
+    params.require(:event).permit(
+      :business_kind, :name, :website, :phone_number,
+      :event_date, :group_size, :location_id, :user_id, :id)
   end
 
   private :set_event, :event_params
