@@ -12,8 +12,11 @@ gem 'rails-api'
 # Cross-Origin Resource Sharing
 gem 'rack-cors', require: 'rack/cors'
 
+gem 'httparty'
 # Use PostgreSQL database
 gem 'pg'
+
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -25,4 +28,9 @@ group :development do
   # Use pry over irb for rails console
   gem 'pry-rails'
   gem 'byebug'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
 end

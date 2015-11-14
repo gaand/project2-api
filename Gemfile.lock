@@ -43,9 +43,16 @@ GEM
     builder (3.2.2)
     byebug (6.0.2)
     coderay (1.1.0)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.3)
     loofah (2.0.3)
@@ -56,6 +63,7 @@ GEM
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.2)
+    multi_xml (0.5.5)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.3)
@@ -65,6 +73,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-test (0.6.3)
@@ -91,6 +101,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.3)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
@@ -116,11 +131,15 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
   byebug
+  dotenv-rails
+  httparty
   pg
   pry-rails
+  puma
   rack-cors
   rails (= 4.2.4)
   rails-api
+  rails_12factor
 
 BUNDLED WITH
    1.10.6
