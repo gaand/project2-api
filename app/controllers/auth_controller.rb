@@ -27,6 +27,7 @@ class AuthController < ApplicationController
   def logout
     if current_user == User.find(params[:id])
       current_user.logout
+      user.token = null
       head :no_content
     else
       head :unauthorized
@@ -41,3 +42,6 @@ class AuthController < ApplicationController
 
   private :credentials
 end
+
+
+

@@ -11,28 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806195336) do
+ActiveRecord::Schema.define(version: 20151109214724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "isbn"
+  create_table "activities", force: :cascade do |t|
+    t.string  "name"
+    t.integer "site_id"
+    t.integer "user_id"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "category"
+    t.string   "address"
+    t.string   "neighborhood"
+    t.string   "scale"
+    t.string   "coverage"
+    t.string   "busy"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "token",           null: false
     t.string   "password_digest", null: false
+    t.string   "given_name"
+    t.integer  "activity_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "opinion"
+    t.integer  "user_id"
+    t.integer  "site_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
