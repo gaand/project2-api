@@ -15,7 +15,7 @@ class VotesController < ApplicationController
     end
   end
 
- # POST /sites
+ # POST /votes
   def create
     @vote = current_user.votes.new(site_id: params[:site_id, opinion: 'up'])
 

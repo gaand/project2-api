@@ -1,34 +1,26 @@
 #
-class SitesController < ApplicationController
+class SitesController < OpenReadController
   before_action :set_site, only: [:update, :destroy]
 
-  # GET /sites
-#  def index
-#    @sites = Site.all
-
-#    render json: @sites
-#  end
-
-  # GET / 
-  def index
-   if params[:neighborhood] then
-     @sites = Site.find_by_neighborhood(params[:neighborhood])
-     else if params[:acivity] then
-       @sites = Site.find_by_activity(params[:activity])
-     else
-       @sites = Site.all
-     end
-   end
-
-   render json: @sites
- end
-
-  # DO I WANT THIS???
-  def show
-    @site = Site.find(params[:id])
-
-    render json: @site
+  def index 
+    if params[:neighborhood] then
+      @sites = Site.where(neighborhood: params[:neighborhood])
+    elsif params[:coverage] then
+      @sites = Site.where(coverage: params[:coverage])
+    elsif params[:busy] then
+      @sites = Site.where(busy: params[:busy])
+    else
+      @sites = Site.all
+    end 
+    render json: @sites 
   end
+  
+
+  # def show
+  #   @site = Site.find(params[:id])
+
+  #   render json: @site, serializer: SiteDetailSerializer, root: "site"
+  # end
 
   # POST /sites
   def create
@@ -42,9 +34,11 @@ class SitesController < ApplicationController
   end
 
   # PATCH /sites/1
-  def update
+  def edit
+    @site = Site.find(params[:id])
+    render json: site_params
     if @site.update(site_params)
-      head :no_content
+      render json: @site
     else
       render json: @site.errors, status: :unprocessable_entity
     end
@@ -52,8 +46,11 @@ class SitesController < ApplicationController
 
   # DELETE /sites/1
   def destroy
-    @site.destroy
-
+    site = Site.find(params[:id])
+    site.destroy
+    flash[:notice] = "page successfully deleted!!!!!"
+    redirect_to(:action => 'index')
+  
     head :no_content
   end
 
@@ -62,8 +59,9 @@ class SitesController < ApplicationController
   end
 
   def site_params
-    params.require(:site).permit(:name, :location, :latitude, :longitude, :description, :upvote_count, :downvote_count, :outdoors, :wifi, :food_drink)
+    params.require(:site).permit(:name, :description, :category, :address, :neighborhood, :scale, :coverage, :busy)
   end
 
   private :set_site, :site_params
+
 end
