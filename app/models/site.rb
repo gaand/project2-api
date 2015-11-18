@@ -1,6 +1,6 @@
 #
 class Site < ActiveRecord::Base
-  belongs_to :creator, class_name: 'User'
+  belongs_to :user
   has_many :votes
   has_many :users, through: :votes 
 end
