@@ -1,4 +1,4 @@
-
+.env
 # Created by https://www.gitignore.io/api/rails,ruby,node,osx,linux,windows
 
 ### Rails ###
@@ -16,9 +16,11 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
-# TODO Comment out these rules if you are OK with secrets being uploaded to the repo
+#
 config/initializers/secret_token.rb
-config/secrets.yml
+
+# TODO: exclude if you have secrets not taken from the environment
+# config/secrets.yml
 
 ## Environment normalization:
 /.bundle
