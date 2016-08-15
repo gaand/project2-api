@@ -1,4 +1,3 @@
-# An example for user of the template
 class ExampleSerializer < ActiveModel::Serializer
   attributes :id, :text, :editable
 

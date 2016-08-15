@@ -1,4 +1,3 @@
-# An example OpenReadController
 class ExamplesController < OpenReadController
   before_action :set_example, only: [:update, :destroy]
 

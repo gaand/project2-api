@@ -1,4 +1,5 @@
-# Base for all API controllers.
+# Do not inherit from this class unless you know what you're doing
+# See ProtectedController and OpenReadController
 class ApplicationController < ActionController::API
   # Force to wants JSON for API
   before_action :api_request_settings
