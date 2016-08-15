@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
 gem 'rails', '~> 4.2.6'
 gem 'rails-api'
@@ -21,7 +21,6 @@ end
 
 group :development do
   gem 'pry-rails', '~> 0.3.4'
-  gem 'rb-readline'
   gem 'spring', '~> 1.6.4'
   gem 'spring-commands-rspec', '~> 1.0.4'
 end
