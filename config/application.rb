@@ -41,7 +41,7 @@ module RailsApiTemplate
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_URL'] || 'http://localhost:8080'
+        origins ENV['CLIENT_ORIGIN'] || 'http://localhost:8080'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
