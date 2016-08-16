@@ -33,7 +33,7 @@ version of Rails 4, as well as track `master` branches for `rails-api` and
     `'rails-api-template'`).
 1.  Create a `.env` for sensitive settings (`touch .env`).
 1.  Generate new `development` and `test` secrets (`bundle exec rake secret`).
-1.  Store them in `.env` with keys SECRET_KEY_BASE_<DEVELOPMENT|TEST>
+1.  Store them in `.env` with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>`
     respectively.
 1.  In order to make requests from your deployed client application, you will
     need to set `CLIENT_ORIGIN` in the environment of the production API (e.g.
