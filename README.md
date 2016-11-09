@@ -264,6 +264,24 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### Reset Database without dropping
+
+This is not a task develpers should run often, but it is sometimes necessary.
+
+- locally
+```sh
+bin/rake db:migrate VERSION=0
+bin/rake db:migrate db:seed db:examples```
+
+- heroku
+
+```sh
+heroku run rake db:migrate VERSION=0
+heroku run rake db:migrate db:seed db:examples```
+
+
+bin/rake db:migrate VERSION=0
+
 ## [License](LICENSE)
 
 1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
