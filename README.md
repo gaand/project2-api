@@ -89,19 +89,21 @@ tests in RSpec to test your API.
 Request:
 
 ```sh
-curl --include --request POST http://localhost:3000/sign-up \
+curl http://localhost:4741/sign-up \
+  --include \
+  --request POST \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "an@example.email",
-      "password": "an example password",
-      "password_confirmation": "an example password"
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'",
+      "password_confirmation": "'"${PASSWORD}"'"
     }
   }'
 ```
 
 ```sh
-scripts/sign-up.sh
+EMAIL=ava@bob.com PASSWORD=hannah scripts/sign-up.sh
 ```
 
 Response:
@@ -113,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 {
   "user": {
     "id": 1,
-    "email": "an@example.email"
+    "email": "ava@bob.com"
   }
 }
 ```
@@ -123,18 +125,20 @@ Content-Type: application/json; charset=utf-8
 Request:
 
 ```sh
-curl --include --request POST http://localhost:3000/sign-in \
+curl http://localhost:4741/sign-in \
+  --include \
+  --request POST \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "an@example.email",
-      "password": "an example password"
+      "email": "'"${EMAIL}"'",
+      "password": "'"${PASSWORD}"'"
     }
   }'
 ```
 
 ```sh
-scripts/sign-in.sh
+EMAIL=ava@bob.com PASSWORD=hannah scripts/sign-in.sh
 ```
 
 Response:
@@ -146,8 +150,8 @@ Content-Type: application/json; charset=utf-8
 {
   "user": {
     "id": 1,
-    "email": "an@example.email",
-    "token": "33ad6372f795694b333ec5f329ebeaaa"
+    "email": "ava@bob.com",
+    "token": "BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f"
   }
 }
 ```
@@ -157,19 +161,19 @@ Content-Type: application/json; charset=utf-8
 Request:
 
 ```sh
-curl --include --request PATCH http://localhost:3000/change-password/$ID \
+curl --include --request PATCH "http://localhost:4741/change-password/$ID" \
   --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
   --data '{
     "passwords": {
-      "old": "an example password",
-      "new": "super sekrit"
+      "old": "'"${OLDPW}"'",
+      "new": "'"${NEWPW}"'"
     }
   }'
 ```
 
 ```sh
-ID=1 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/change-password.sh
+ID=1 OLDPW=hannah NEWPW=elle TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f scripts/change-password.sh
 ```
 
 Response:
@@ -183,12 +187,14 @@ HTTP/1.1 204 No Content
 Request:
 
 ```sh
-curl --include --request DELETE http://localhost:3000/sign-out/$ID \
+curl http://localhost:4741/sign-out/$ID \
+  --include \
+  --request DELETE \
   --header "Authorization: Token token=$TOKEN"
 ```
 
 ```sh
-ID=1 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/sign-out.sh
+ID=1 TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f scripts/sign-out.sh
 ```
 
 Response:
@@ -209,12 +215,14 @@ HTTP/1.1 204 No Content
 Request:
 
 ```sh
-curl --include --request GET http://localhost:3000/users \
+curl http://localhost:4741/users \
+  --include \
+  --request GET \
   --header "Authorization: Token token=$TOKEN"
 ```
 
 ```sh
-TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/users.sh
+TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f scripts/users.sh
 ```
 
 Response:
@@ -227,11 +235,11 @@ Content-Type: application/json; charset=utf-8
   "users": [
     {
       "id": 2,
-      "email": "another@example.email"
+      "email": "bob@ava.com"
     },
     {
       "id": 1,
-      "email": "an@example.email"
+      "email": "ava@bob.com"
     }
   ]
 }
@@ -242,12 +250,12 @@ Content-Type: application/json; charset=utf-8
 Request:
 
 ```sh
-curl --include --request GET http://localhost:3000/users/$ID \
+curl --include --request GET http://localhost:4741/users/$ID \
   --header "Authorization: Token token=$TOKEN"
 ```
 
 ```sh
-ID=2 TOKEN=33ad6372f795694b333ec5f329ebeaaa scripts/user.sh
+ID=2 TOKEN=BAhJIiVlZDIwZTMzMzQzODg5NTBmYjZlNjRlZDZlNzYxYzU2ZAY6BkVG--7e7f77f974edcf5e4887b56918f34cd9fe293b9f scripts/user.sh
 ```
 
 Response:
@@ -259,7 +267,7 @@ Content-Type: application/json; charset=utf-8
 {
   "user": {
     "id": 2,
-    "email": "another@example.email"
+    "email": "bob@ava.com"
   }
 }
 ```
