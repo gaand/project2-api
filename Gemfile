@@ -19,6 +19,7 @@ group :development, :test do
   gem 'pry', '~> 0.10'
   gem 'byebug', '~> 9.0'
   gem 'pry-byebug', '~> 3.3'
+  gem 'rubocop', '~> 0.44'
 end
 
 group :development do
